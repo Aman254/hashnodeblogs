@@ -1,0 +1,95 @@
+---
+title: "Strings and Template Literals"
+seoTitle: "JavaScript: Unleashing the Power of String & Template Literals"
+datePublished: Mon Jul 03 2023 15:00:37 GMT+0000 (Coordinated Universal Time)
+cuid: cljmzn8uq00030ajjby0x179k
+slug: strings-and-template-literals
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1688396138772/23d109ea-45c3-41b0-b616-4138c90d3041.jpeg
+tags: es6, javascript-strings, template-literals, wemakedevs, embeddedexpressions
+
+---
+
+The `String` object is used to represent and manipulate a sequence of characters. Strings are useful for holding data that can be represented in text form.
+
+**Creating Strings:**
+
+Here in the code below, we are creating a string with names string1 and string2 and we declaring it by adding Double quotes or we can also Declare it with Single quotes.
+
+```jsx
+const string1 = "Aman"; 
+const string2 = 'Mishra';  
+console.log(string1 , string2);
+```
+
+But, here is the Problem in if we want to add variables in the print statement like:
+
+\*\*I'm Aman,a 19 years old student! {\*\*And the name aman and the age and the student is provided by the user: } This is how we do it: 👇
+
+```jsx
+const firstName = 'aman';
+const job = 'student';
+const birthYear = 2004;
+const year = 2023;
+const aman = "I'm " + firstName + ',a ' + (year - birthYear) + ' years old '  + job+ '!'
+console.log(aman) //**I'm aman,a 19 years old student!**
+```
+
+**Notice! that to print a string with variables we are using the + operator and it is not feasible:**
+
+[String - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+---
+
+So, Here comes into the Picture Template Literals:
+
+### Template Literals: ( )
+
+**Template literals** are literals delimited with backtick (\`\`\`) characters, allowing for multi-line strings, string interpolation,  with embedded expressions, and special constructs called tagged templates:
+
+**String Interpolation:** Without template literals, when you want to combine output from expressions with strings, you'd concatenate them  using the addition operator +
+
+Now, Let's Rewrite the same code using Template literals:
+
+```jsx
+const firstName = 'aman';
+const job = 'student';
+const birthYear = 2004;
+const year = 2023;
+const aman = `I'm ${firstName} , a ${year - birthYear} year old ${job}`
+console.log(aman) //**I'm aman,a 19 years old student!**
+```
+
+* so, with template literal, we can write a String in a more normal, and then basically insert the variables directly into the string, and then they will simply be replaced. So, basically, a Template literal can assemble multiple pieces into one final string.
+    
+
+---
+
+### Embedded Expressions:
+
+* A more advanced form of template literals is *tagged* templates.
+    
+
+Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.
+
+```jsx
+const person = "Mike";
+const age = 28;
+
+function myTag(strings, personExp, ageExp) {
+  const str0 = strings[0]; // "That "
+  const str1 = strings[1]; // " is a "
+  const str2 = strings[2]; // "."
+
+  const ageStr = ageExp > 99 ? "centenarian" : "youngster";
+
+  // We can even return a string built using a template literal
+  return `${str0}${personExp}${str1}${ageStr}${str2}`;
+}
+
+const output = myTag`That ${person} is a ${age}.`;
+
+console.log(output);
+// That Mike is a youngster.
+```
+
+Remember, practice is key to becoming proficient in using Strings and Template-Literals effectively. So, go ahead, experiment with code, and continue exploring the fascinating world of JavaScript! 😃
