@@ -2,7 +2,7 @@
 title: "Guess My Number: A Fun and Interactive Game Project"
 seoTitle: "Guess My Number: A Fun HTML CSS JavaScript Game for Endless Entertainm"
 seoDescription: "Explore the thrilling world of "Guess My Number," a captivating game built using HTML, CSS, and JavaScript."
-datePublished: Thu Jul 13 2023 18:30:08 GMT+0000 (Coordinated Universal Time)
+datePublished: Tue Jul 11 2023 18:31:26 GMT+0000 (Coordinated Universal Time)
 cuid: clk1hj72u00060ajxhj7j7x3q
 slug: guess-my-number-a-fun-and-interactive-game-project
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1689272806330/fd971346-d99f-4fba-a97e-9d3da9803b76.jpeg
