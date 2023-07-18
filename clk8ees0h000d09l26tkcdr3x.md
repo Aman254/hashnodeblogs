@@ -1,0 +1,50 @@
+---
+title: "JavaScript Engine and Runtime"
+seoTitle: "Unveiling the Magic Behind JavaScript Runtime and Engines"
+seoDescription: "Discover the fascinating world of JavaScript runtime and engines in this comprehensive blog post."
+datePublished: Sat Jul 15 2023 14:34:45 GMT+0000 (Coordinated Universal Time)
+cuid: clk8ees0h000d09l26tkcdr3x
+slug: javascript-engine-and-runtime
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1689690849116/39dbc99c-5e73-4bca-a751-fc119db7f0ec.jpeg
+tags: javascript, execution-context, wemakedevs, javascript-runtime
+
+---
+
+**JS Engine:** It is a Program that executes in JavaScript code, any J.S engine contains a "CALL STACK" and a "HEAP", a JavaScript Engine is simply a computer program that receives JavaScript source code and compiles it into the Binary Instructions (Machine Code) that CPU can Understand. JavaScript Engines are typically developed by WEB Browsers: VENDORS Each browser has one: V8 Engine - Google Chrome, SpiderMonkey - Firefox, Chakra - Internet Explorer.
+
+**Call Stack: The Call Stack is where our code is executed. Using something called Execution Context more on this will discuss in detail in later blogs.** *More detailed information on Execution context in Next upcoming blogs.*
+
+**HEAP: It is an unstructured memory pool that stores all the objects that our application needs.**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689688089160/2176b207-8578-4f85-b8a0-fb4e0d286151.png align="center")
+
+**Compilation vs Interpretation**
+
+**Compilation: Entire code is converted into machine code at once, and written to a Binary file that executes once**
+
+**Interpretation: The interpreter runs through the source code and executes line by line.**
+
+In JavaScript Instead of simple Interpretation modern JavaScript engine uses, now a mix between compilation and Interpretation, which is Just In Time Compilation. This Approach compiles the entire code to the Machine code and then executes it right away. Here, there is NO portable file to execute as a "Compilation"
+
+**How it Works:**
+
+So, as a piece of JavaScript code enters the engine the first step is to "**PARSE**" the code which essentially means to Read the code.
+
+Step 1: During the parsing process the code is passed to a Data Structure called **Abstract Syntax Tree or AST.**
+
+This works a first splitting up the code into Meaningful language like CONST or Function keywords and saving all these pieces into the tree in a structural way. This step also Checks if there are any Syntax errors. And the resulting tree will later be used to generate MACHINE CODE.
+
+**Step 2:** **Compilation**
+
+Now, the next step is compilation AST and the compiler compiles it into MACHINE CODE  
+**Step 3: Execution:** This Machine Code then gets executed right away. Because Modern JavaScript Engine uses Just in Time compilation. And execution happens in J.S engines **"CALL STACK" NOW,**
+
+Moders J.S Engines actually have some pretty clever optimization strategies what they do is create a very unoptimized version of Machine Code in the Beginning just so that can execute as fast as possible then in the Background the code is optimized and Recompiled during the already running Program Execution. This can be done multiple times and during each optimization, the unoptimized code is simply swept away. For the new more optimized code. And this process is what makes Moders Engine such as V8 so fast.
+
+And, all this parsing, compilation and optimization happens in some special threads inside the engine that we cannot access from our code. Now different Engines implement slightly different ways but, in a nutshell, this is what modern JIT compilation looks like in JS.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689690464415/f6bd47ff-b2fb-44e7-b4cf-c8297377ae96.png align="center")
+
+**JavaScript Runtime:** We can imagine JavaScript runtime as a big box that includes all the things we need to use JavaScript. Like, WEB APIs are also part of runtime because a Js runtime is just a box that contains all Js-related stuff we need in order to use Js.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1689690719498/6b074cd9-dc8a-4bed-b289-e6029b705e89.png align="center")
