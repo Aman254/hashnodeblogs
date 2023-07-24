@@ -1,0 +1,93 @@
+---
+title: "Git Squash"
+datePublished: Tue Jul 18 2023 18:40:12 GMT+0000 (Coordinated Universal Time)
+cuid: clkh7rhv8000e09m9ckb2e1yf
+slug: git-squash
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1690223755196/eb8406ff-af53-481d-bcc3-44454a768e4c.jpeg
+tags: github, version-control, github-actions-1, git-merge-squash, wemakedevs
+
+---
+
+As a software developer, you're no stranger to the importance of maintaining a clean and organized Git history. A cluttered history with too many small, insignificant commits can make it difficult to understand the evolution of your codebase. Enter "Git squash" – a powerful technique that allows you to combine multiple commits into a single commit, providing a more concise and coherent history. In this blog, we'll explore Git Squash with real-world examples to demonstrate how it can streamline your Git history and enhance collaboration.
+
+## **Understanding Git Squash**
+
+Before we delve into examples, let's recap what Git Squash is all about. Git squash is a process of combining several commits into a single commit. This technique is often used when working on feature branches or bug fixes, where you might have made multiple intermediate commits. Squashing these commits into one meaningful commit before merging into the main branch helps maintain a cleaner and more focused Git history.
+
+## **Example 1: Squashing Local Commits**
+
+Let's say you're working on a new feature branch called `feature-x`, and you made three commits while developing the feature. However, you realize that the commits are too granular and would be better off combined into a single commit.
+
+```javascript
+$ git log --oneline
+f7b4a36 Commit 3
+18c1e5d Commit 2
+9a1c85e Commit 1
+```
+
+To squash these commits, initiate an interactive rebase with the following command:
+
+```sql
+$ git rebase -i HEAD~3
+```
+
+An editor will open, presenting the commits you want to squash:
+
+```javascript
+pick 9a1c85e Commit 1
+pick 18c1e5d Commit 2
+pick f7b4a36 Commit 3
+```
+
+Change the `pick` command for commits 2 and 3 to `squash` or simply `s`:
+
+```javascript
+pick 9a1c85e Commit 1
+squash 18c1e5d Commit 2
+squash f7b4a36 Commit 3
+```
+
+Save and close the editor. Another editor will open, allowing you to edit the commit message for the new, squashed commit:
+
+```javascript
+# This is a combination of 3 commits.
+# The first commit's message is:
+
+Commit 1
+
+# This is the 2nd commit message:
+
+Commit 2
+
+# This is the 3rd commit message:
+
+Commit 3
+```
+
+Edit the message to provide a descriptive summary of the changes:
+
+```javascript
+Implement feature X
+```
+
+Save and close the editor. Now you've successfully squashed the three commits into one.
+
+## **Example 2: Squashing Commits on a Remote Branch**
+
+It's worth noting that squashing should typically be done on local branches before merging into a shared branch. However, if you've accidentally pushed multiple commits to a remote branch and want to squash them, you can still achieve this with a force push. Keep in mind that force pushing can rewrite history and may cause conflicts if others are also working on the same branch.
+
+Assuming you've already squashed the commits on your local branch, you can force push the changes to the remote branch using:
+
+```javascript
+$ git push origin feature-x --force
+```
+
+## **Proceed with Caution**
+
+While Git squash is a powerful technique, exercise caution when using it, especially on shared branches. Squashing commits should be reserved for local feature branches or personal repositories. Avoid squashing commits that are already part of shared branches or have been pushed to a remote repository to prevent conflicts and complications during collaboration.
+
+## **Conclusion**
+
+Git Squash is a valuable tool for maintaining a clean and coherent Git history. By combining multiple commits into one, you create a more organized and readable history that benefits both you and your team. Understanding how to squash commits and when to apply it will help you keep your codebase history streamlined and focused.
+
+Incorporate Git Squash into your workflow, and make your Git history a clearer and more effective story of your code's evolution. Happy squashing!
